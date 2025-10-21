@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DH Speech Extractor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=Source+Sans+3:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero__overlay"></div>
+        <div class="hero__content">
+          <h1>Digital Humanities Speech Extractor</h1>
+          <p>
+            Upload a digitized play, name the character, and we will assemble a
+            script of their voice.
+          </p>
+        </div>
+      </header>
+
+      <main class="app-card" role="main">
+        <section class="instructions">
+          <h2>How it works</h2>
+          <ol>
+            <li>Upload a plain-text play file (TXT).</li>
+            <li>Enter the character whose speeches you would like to study.</li>
+            <li>
+              Click <strong>Gather Speeches</strong> to create a downloadable
+              file of their lines.
+            </li>
+          </ol>
+        </section>
+
+        <form class="controls" id="speech-form">
+          <label class="control" for="play-file">
+            <span class="control__label">Play File</span>
+            <input
+              type="file"
+              id="play-file"
+              accept=".txt,text/plain"
+              required
+            />
+          </label>
+
+          <label class="control" for="character-name">
+            <span class="control__label">Character Name</span>
+            <input
+              type="text"
+              id="character-name"
+              placeholder="e.g., HAMLET"
+              required
+            />
+          </label>
+
+          <button type="submit" class="primary-btn">Gather Speeches</button>
+        </form>
+
+        <section class="status" aria-live="polite" id="status"></section>
+
+        <section class="download" id="download-section" hidden>
+          <h2>Download</h2>
+          <p class="download__summary" id="download-summary"></p>
+          <a id="download-link" class="primary-btn" download>Download File</a>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>
+          Inspired by annotation margins, commonplace books, and the collective
+          voices preserved in archives.
+        </p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
